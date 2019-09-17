@@ -59,7 +59,7 @@ public class AssetClass {
 
     @Override
     public String toString() {
-        return "AssetExample: [id=" + getId() + ", date:" + getDate() + ", location:" + getLocation() + ", Reported By:" + getReportedBy() + "]";
+        return "[" + getDate() + "," + getLocation() + "," + getDescription() + "," + getReportedBy() + "]";
     }
 }
 

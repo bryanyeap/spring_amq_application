@@ -1,5 +1,6 @@
 package AMQ;
 
+import Reddis.AssetDataRedis;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
@@ -36,7 +37,9 @@ public class MessageProducer {
         // so we must cast to it to get access to its .getText() method.
         if (message instanceof TextMessage) {
             TextMessage textMessage = (TextMessage) message;
-            System.out.println("Received message: '" + textMessage.getText() + "'");
+            AssetDataRedis assetDataRedis = new AssetDataRedis();
+            assetDataRedis.insertIntoRedis(textMessage.getText());
+            //System.out.println("Received message: '" + textMessage.getText() + "'");
         }
         connection.close();
     }
