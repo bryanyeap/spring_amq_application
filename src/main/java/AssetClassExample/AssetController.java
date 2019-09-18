@@ -14,8 +14,8 @@ import java.net.URI;
 @RequestMapping(path="/incidentMgmtSystem")
 public class AssetController {
 
-    private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
-    private static String subject = "JCG_QUEUE";
+    private static String url = "http://broker-amq-tcp-amq-demo.apps.mta-eam-eval.rhmi.io/";
+    private static String subject = "demo_queue";
 
     @Autowired
     private AssetClassDao assetClassDao;
