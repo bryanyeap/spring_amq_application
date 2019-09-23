@@ -14,7 +14,7 @@ import java.net.URI;
 @RequestMapping(path="/incidentMgmtSystem")
 public class AssetController {
 
-    private static String url = "http://broker-amq-tcp-amq-demo.apps.mta-eam-eval.rhmi.io/";
+    private static String url = "tcp://broker-amq-tcp:61616";
     private static String subject = "demo_queue";
 
     @Autowired
@@ -26,7 +26,9 @@ public class AssetController {
         assetClass.setId(id);
         assetClassDao.addClasss(assetClass);
 
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+        connectionFactory.setUserName("useraVk");
+        connectionFactory.setPassword("jFxwmHup");
         Connection connection = connectionFactory.createConnection();
         connection.start();
 

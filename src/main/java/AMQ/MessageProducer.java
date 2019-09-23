@@ -8,15 +8,17 @@ import javax.jms.*;
 
 public class MessageProducer {
     // URL of the JMS server
-    private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+    private static String url = "tcp://broker-amq-tcp:61616";
     // default broker URL is : tcp://localhost:61616"
 
     // Name of the queue we will receive messages from
-    private static String subject = "JCG_QUEUE";
+    private static String subject = "demo_queue";
 
     public static void main(String[] args) throws JMSException {
         // Getting JMS connection from the server
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+        connectionFactory.setUserName("useraVk");
+        connectionFactory.setPassword("jFxwmHup");
         Connection connection = connectionFactory.createConnection();
         connection.start();
 
